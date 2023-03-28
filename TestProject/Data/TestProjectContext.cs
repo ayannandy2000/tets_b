@@ -18,5 +18,11 @@ namespace TestProject.Data
         public DbSet<TestProject.models.users> users { get; set; } = default!;
 
         public DbSet<TestProject.Models.Address>? Address { get; set; }
+
+        public DbSet<TestProject.Models.Category>? Category { get; set; }
+
+        public DbSet<TestProject.Models.Product>? Product { get; set; }
+
+        public DbSet<TestProject.Models.Banner>? Banner { get; set; }
     }
 }

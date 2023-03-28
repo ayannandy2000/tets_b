@@ -10230,19 +10230,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eygdnet04\\.nuget\\packages\\": {}
+    "C:\\Users\\eygdnet05\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\TestProject\\TestProject\\TestProject\\TestProject.csproj",
+      "projectUniqueName": "C:\\Users\\eygdnet05\\Documents\\Visual Studio 2022\\New folder\\TestProject\\TestProject\\TestProject.csproj",
       "projectName": "TestProject",
-      "projectPath": "E:\\TestProject\\TestProject\\TestProject\\TestProject.csproj",
-      "packagesPath": "C:\\Users\\eygdnet04\\.nuget\\packages\\",
-      "outputPath": "E:\\TestProject\\TestProject\\TestProject\\obj\\",
+      "projectPath": "C:\\Users\\eygdnet05\\Documents\\Visual Studio 2022\\New folder\\TestProject\\TestProject\\TestProject.csproj",
+      "packagesPath": "C:\\Users\\eygdnet05\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eygdnet05\\Documents\\Visual Studio 2022\\New folder\\TestProject\\TestProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\eygdnet04\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eygdnet05\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
