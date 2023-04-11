@@ -49,6 +49,22 @@ namespace TestProject.Controllers
 
             return address;
         }
+        [HttpGet("getByUserId/{id}")]
+        public async Task<ActionResult<IEnumerable<Address>>> GetAddressByIUserId(int id)
+        {
+            if (_context.Address == null)
+            {
+                return NotFound();
+            }
+            var address = await _context.Address.Where(e=>e.UserId==id).ToListAsync();
+
+            if (address == null)
+            {
+                return NotFound();
+            }
+
+            return address;
+        }
 
         // PUT: api/Addresses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

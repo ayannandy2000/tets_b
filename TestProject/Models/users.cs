@@ -1,4 +1,5 @@
 ﻿using MessagePack;
+using TestProject.Models;
 
 namespace TestProject.models
 {
@@ -15,6 +16,6 @@ namespace TestProject.models
         public string CreatedAt { get; set; }
         public string ModifiedAt { get; set; }
         public Boolean IsActive { get; set; }
-        public int AddressID { get; set; }
+        public List<Address> address { get; set; }
     }
 }

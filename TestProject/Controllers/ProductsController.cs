@@ -80,6 +80,119 @@ namespace TestProject.Controllers
 
             return NoContent();
         }
+        [HttpGet("getProdductByCategory/{id}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategoryId(int id)
+        {
+
+            if (_context.Product == null)
+            {
+                return NotFound();
+            }
+            var product = await _context.Product.Where(e => e.CategoryId == id).ToListAsync();
+
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return product;
+        }
+        [HttpGet("filterByRatingAndCategory")]
+        public async Task<ActionResult<IEnumerable<Product>>> ProductsWithHigherRatingsAndCategory(int id, double rating)
+        {
+            if (_context.Product == null)
+            {
+                return NotFound();
+            }
+
+
+            var products = await _context.Product?.Where(e => e.CategoryId == id).Select(e => e).ToListAsync();
+
+            var higherRatedProducts = products.Where(e => e.rating > rating).Select(e => e).ToList();
+
+            return higherRatedProducts;
+
+        }
+        [HttpGet("filterByRating")]
+        public async Task<ActionResult<IEnumerable<Product>>> ProductsWithHigherRatings(double rating)
+        {
+            if (_context.Product == null)
+            {
+                return NotFound();
+            }
+
+
+            var higherRatedProducts = await _context.Product?.Where(e => e.rating > rating).Select(e => e).ToListAsync();
+
+            return higherRatedProducts;
+
+        }
+        [HttpGet("sortAsc")]
+        public async Task<ActionResult<IEnumerable<Product>>> sortProductAsc(int id)
+        {
+            if (id == 0)
+            {
+                // var categoryId = _context.Category?.Where(e => e.Name == category).Select(e => e.ID).FirstOrDefault();
+
+                var products = await _context.Product?.OrderBy(e => e.price).ToListAsync();
+
+                if (products == null)
+                {
+                    return BadRequest();
+                }
+                // var sortedProducts = products.OrderBy(e => e.price).ToList();
+
+                return products;
+            }
+            else
+            {
+                // var categoryId = _context.Category?.Where(e => e.Name == category).Select(e => e.ID).FirstOrDefault();
+
+                var products = await _context.Product?.Where(e => e.CategoryId == id).Select(e => e).ToListAsync();
+
+                if (products == null)
+                {
+                    return BadRequest();
+                }
+                var sortedProducts = products.OrderBy(e => e.price).ToList();
+
+                return sortedProducts;
+            }
+
+        }
+
+        //sortbyDescendingPrice
+        [HttpGet("sortDesc")]
+        public async Task<ActionResult<IEnumerable<Product>>> sortProductDesc(int id)
+        {
+
+            if (id == 0)
+            {
+                var products = await _context.Product?.OrderByDescending(e => e.price).ToListAsync();
+                if (products == null)
+                {
+                    return BadRequest();
+                }
+                // var sortedProducts = products.OrderByDescending(e => e.price).ToList();
+
+                return products;
+            }
+            else
+            {
+                var products = await _context.Product?.Where(e => e.CategoryId == id).Select(e => e).ToListAsync();
+                if (products == null)
+                {
+                    return BadRequest();
+                }
+                var sortedProducts = products.OrderByDescending(e => e.price).ToList();
+
+                return sortedProducts;
+            }
+
+
+
+        }
 
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

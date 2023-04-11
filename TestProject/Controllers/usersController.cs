@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestProject.Data;
 using TestProject.models;
+using TestProject.Models;
 
 namespace TestProject.Controllers
 {
@@ -94,6 +95,25 @@ namespace TestProject.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Getusers", new { id = users.ID }, users);
+        }
+        [Route("valiadate")]
+        [HttpGet]
+        public async Task<ActionResult<users>> ValiadateUser(string email,string password)
+        {
+            if (_context.users == null)
+            {
+                return NotFound();
+            }
+            var users = await _context.users.Where(c=>c.email==email).FirstOrDefaultAsync();
+
+
+            if (users == null || password!=users.password)
+            {
+                return NotFound("errror");
+            }
+        
+
+            return users;
         }
 
         // DELETE: api/users/5

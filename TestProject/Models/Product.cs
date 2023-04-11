@@ -10,6 +10,10 @@
         public bool IsActive { get; set; }
         public int CategoryId { get; set; }
         public string price { get; set; }
+        public string keyfeature1 { get; set; }
+        public string keyfeature2 { get; set; }
+        public string keyfeature3 { get; set; }
+        public string keyfeature4 { get; set; }
         public float rating { get; set; }
         public int reviewID { get; set; }
         public int offerID { get; set; }
@@ -17,6 +21,7 @@
         public int quantity { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set;}
+        
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set;}
     }
